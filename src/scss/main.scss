@@ -1,0 +1,51 @@
+@import './bootstrap-variables';
+@import './bootstrap-custom';
+
+body {
+  & > .lr-container {
+    background-image: url('/img/background.jpg');
+    h1 {
+      text-decoration: underline;
+      margin-bottom: 60px;
+    }
+    h1.lr-slide-title {
+      font-size: 50px;
+      margin: 100px auto;
+      text-decoration: none;
+    }
+    h2.lr-slide-subtitle {
+      font-size: 40px;
+      text-align: right;
+      padding-right: 50px;
+    }
+    & > section {
+      background-color: rgba(250,255,250,0.85);
+      display: none;
+      height: 550px;
+      font-size: 28px;
+      padding: 30px 40px;
+      line-height: 1.6em;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  margin: 20px 40px;
+  & > div {
+    flex-grow: 1;
+  }
+  .slideContoller {
+    margin-left: 100px;
+    i {
+      margin-right: 30px;
+      cursor: pointer;
+    }
+  }
+  .pageInfo {
+    font-size: 28px;
+  }
+  .company {
+    text-align: right;
+  }
+}

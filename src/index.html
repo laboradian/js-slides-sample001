@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"  >
+  <!--  Font Awesome の CDN  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>JavaScript でスライドを作ってみる001</title>
+</head>
+<body>
+
+  <div class="lr-container" id="lr-container">
+
+    <section id="page1">
+      <h1 class="lr-slide-title">JavaScript でスライドを作ってみる001</h1>
+
+      <h2 class="lr-slide-subtitle">2017年7月某日<br>ラボラジアン</h2>
+
+    </section>
+
+
+    <section id="page2">
+      <h1>方針</h1>
+      <ul>
+        <li>ページを制御する部分は、<a href="https://developer.mozilla.org/ja/docs/Web/API/Window/history">window.history</a>オブジェクトを使って自分でコードを書きます。</li>
+        <li>1つのHTML内に、全てのページの内容を書いておきます。</li>
+        <li>1ページ分の記述は、<code>&lt;section&gt;</code>タグで囲みます。</li>
+        <li>書いたページの情報は JavaScriptの配列で管理します。</li>
+        <li>URL末尾のハッシュでページを指定します。（<code>#1</code>なら1ページ目、<code>#2</code>なら2ページ目となります）</li>
+      </ul>
+
+    </section>
+
+    <section id="page3">
+      <h1>ページ履歴の管理</h3>
+      <ul>
+        <li>ハッシュでページ位置を特定したら、目的のページ以外の<code>&lt;section&gt;</code>タグは非表示にします。</li>
+        <li>しかしこれだけでは、ブラウザの「戻る」「進む」ボタンに対応できないため、<code>window.history</code>オブジェクトも使います。</li>
+        <li>ページを移動する処理のところで、<code>replaceState()</code>メソッドや <code>pushState()</code>メソッドを使いページ履歴に情報を追加します。</li>
+        <li>但し、「戻る」「進む」が押された時にはこれらのメソッドを呼ばないようにします。</li>
+      </ul>
+
+    </section>
+
+    <section id="page4">
+      <h1>その他</h3>
+      <ul style="margin-top:90px;">
+        <li>画面下の三角アイコンでページを戻る、または進むことができます。</li>
+        <li>左矢印キーと右矢印キーでページを戻る、または進むことができます。</li>
+        <li>画面下に総ページ数と現在のページ数が表示されます。</li>
+        <li>ハッシュでページを指定したURLを直接指定してアクセスした場合も、ちゃんとそのページが表示されます。</li>
+      </ul>
+
+      <h2 style="margin-top: 40px;">ソースコード</h2>
+      <ul>
+        <li><a href="https://github.com/laboradian/js-slides-sample001">laboradian/js-slides-sample001</a></li>
+      </ul>
+    </section>
+
+    <section id="page5">
+      <h1>参考サイト</h3>
+      <ul style="margin-top:90px;">
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method">Manipulating the browser history - Web APIs | MDN</a></li>
+        <li><a href="https://developer.mozilla.org/ja/docs/Web/Guide/DOM/Manipulating_the_browser_history">ブラウザの履歴を操作する - ウェブデベロッパーガイド | MDN</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onpopstate">WindowEventHandlers.onpopstate - Web APIs | MDN</a></li>
+        <li><a href="https://developer.mozilla.org/ja/docs/Web/API/Window/history">window.history - Web API インターフェイス | MDN</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API">Manipulating the browser history - Web APIs | MDN</a></li>
+      </ul>
+
+    </section>
+  </div>
+
+  <footer>
+    <div class="slideContoller">
+      <i class="fa fa-fast-backward fa-2x" id="icon-fast-backward" aria-hidden="true"></i>
+      <i class="fa fa-backward fa-2x" id="icon-backward" aria-hidden="true"></i>
+      <i class="fa fa-forward fa-2x" id="icon-forward" aria-hidden="true"></i>
+      <i class="fa fa-fast-forward fa-2x" id="icon-fast-forward" aria-hidden="true"></i>
+    </div>
+    <div class="pageInfo" id="pageInfo"></div>
+    <div class="company">
+      © 2017 <a href="http://laboradian.com/">Laboradian</a>
+    </div>
+  </footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="js/main.js" charset="utf-8"></script>
+</body>
+</html>
